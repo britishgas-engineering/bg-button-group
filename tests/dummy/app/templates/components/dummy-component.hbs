@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-3">
+
+      {{#bg-button-group onButtonClick=(action 'onButtonClickHandler') selectedValue=selectedValue as |bg|}}
+        {{#each buttons as |btn|}}
+          {{#bg.button class="btn-success" value=btn}}
+            {{btn.label}}
+          {{/bg.button}}
+        {{/each}}
+      {{/bg-button-group}}
+    </div>
+    <div class="col-sm-3">
+      Selected:
+      {{result}}
+    </div>
+  </div>
+
+</div>
