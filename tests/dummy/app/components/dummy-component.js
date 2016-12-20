@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  buttons: [{id: 1, label: 'apple'}, {id: 2, label: 'melon'}],
+  buttons: [{id: 1, label: 'apple'}, {id: 2, label: 'melon'}, {id: 3, label: 'plum'}],
   selectedValue: {id: 2, label: 'melon'},
   didInsertElement() {
     this._super(...arguments);
