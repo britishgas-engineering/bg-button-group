@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "https://github.com/britishgas-engineering/bg-button-group",
   "engines": {
     "node": ">= 0.10.0"
   },
