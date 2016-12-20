@@ -6,7 +6,7 @@ Lightweight component for groupping buttons and sending 1 action when the user c
 
 Value can be any of data types even ember objects.
 
-Here at British Gas we use bootstrap therefore the rendered buttons has the added `btn` class.
+Here at British Gas we use bootstrap therefore the rendered buttons have the added `btn` class.
 
 Example: 
 
