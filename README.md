@@ -2,13 +2,55 @@
 
 # Bg-button-group
 
-This README outlines the details of collaborating on this Ember addon.
+Lightweight component for groupping buttons and sending 1 action when the user clicks on one of the buttons.
+
+Value can be any of data types even ember objects.
+
+Here at British Gas we use bootstrap therefore the rendered buttons has the added `btn` class.
+
+Example: 
+
+Assume there is a buttons array like:
+
+```javascript
+  buttons: [{id: 1, label: 'apple'}, {id: 2, label: 'melon'}],
+```
+
+Template:
+
+```hbs
+      {{#bg-button-group onButtonClick=(action 'onButtonClickHandler') selectedValue=selectedValue as |bg|}}
+        {{#each buttons as |btn|}}
+          {{#bg.button class="btn-success" value=btn}}
+            {{btn.label}}
+          {{/bg.button}}
+        {{/each}}
+      {{/bg-button-group}}
+
+```
+
+## Handling event (catching the clicked value)
+
+set `onButtonClick` action which passes the value set to the button previously
+
+## Preselected button
+
+Use `selectedValue` attrinbute and pass the same value what you passed to the button.
+
+## Rendered html
+
+```html
+<div>
+  <button class="btn text-center bg-button" id="ember123">a label</button>
+  <button class="btn text-center bg-button" id="ember125">another label</button>
+</div>
+```
+
+DEMO page here: (https://britishgas-engineering.github.io/bg-button-group)
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* ember install bg-button-group
 
 ## Running
 
