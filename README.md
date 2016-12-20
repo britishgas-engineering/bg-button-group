@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/britishgas-engineering/bg-button-group.svg?branch=master)](https://travis-ci.org/britishgas-engineering/bg-button-group)
+
 # Bg-button-group
 
 This README outlines the details of collaborating on this Ember addon.
