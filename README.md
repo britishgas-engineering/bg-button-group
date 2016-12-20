@@ -29,6 +29,11 @@ Template:
 
 ```
 
+If you want to use as `bootstrap` botton group feature, simple add `btn-group` (or similar) class to the component.
+```hbs
+      {{#bg-button-group class="btn-group" onButtonClick=(action 'onButtonClickHandler') selectedValue=selectedValue as |bg|}}
+```
+
 ## Handling event (catching the clicked value)
 
 set `onButtonClick` action which passes the value set to the button previously
