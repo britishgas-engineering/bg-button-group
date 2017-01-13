@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    rootURL: '/',
+    rootURL: '/bg-button-group/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
