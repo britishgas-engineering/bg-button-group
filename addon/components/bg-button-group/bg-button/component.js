@@ -6,6 +6,8 @@ import layout from './template';
 
 export default Ember.Component.extend({
   layout,
+  attributeBindings: ['type'],
+  type: 'button',
 
   /**
    * Defaul class names following bootstrap
