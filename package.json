@@ -1,6 +1,6 @@
 {
   "name": "bg-button-group",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ember CLI button group component",
   "directories": {
     "doc": "doc",
