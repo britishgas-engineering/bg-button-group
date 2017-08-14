@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('bg-button-group/bg-button', 'Integration | Component | bg button group/bg button', {
+moduleForComponent('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg button group/bg button elem', {
   integration: true
 });
 
@@ -14,9 +14,9 @@ test('when renders', function(assert) {
   });
   // Template block usage:
   this.render(hbs`
-    {{#bg-button-group/bg-button id="myCustomIdForTest" onRegister=(action 'onRegisterHandler')}}
+    {{#bg-button-group/bg-button-elem id="myCustomIdForTest" onRegister=(action 'onRegisterHandler')}}
       button label
-    {{/bg-button-group/bg-button}}
+    {{/bg-button-group/bg-button-elem}}
   `);
 
   assert.equal(this.$().text().trim(), 'button label');
@@ -29,9 +29,9 @@ test('active status', function (assert) {
   this.set('value', buttonValue);
 
   this.render(hbs`
-    {{#bg-button-group/bg-button value=value _selectedValue=_selectedValue}}
+    {{#bg-button-group/bg-button-elem value=value _selectedValue=_selectedValue}}
       button label
-    {{/bg-button-group/bg-button}}
+    {{/bg-button-group/bg-button-elem}}
   `);
   assert.notOk(this.$('>button').hasClass('active'), 'should be false by default');
 
@@ -50,9 +50,9 @@ test('onButtonClick action', function (assert) {
   });
 
   this.render(hbs`
-    {{#bg-button-group/bg-button value=value onButtonClick=(action 'onClickHandler')}}
+    {{#bg-button-group/bg-button-elem value=value onButtonClick=(action 'onClickHandler')}}
       button label
-    {{/bg-button-group/bg-button}}
+    {{/bg-button-group/bg-button-elem}}
   `);
   this.$('>button').click();
 });

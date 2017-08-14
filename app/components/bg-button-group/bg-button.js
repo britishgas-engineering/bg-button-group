@@ -1,1 +1,0 @@
-export { default } from 'bg-button-group/components/bg-button-group/bg-button';
