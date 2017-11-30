@@ -13,8 +13,7 @@ before_install:
   - npm config set spin false
   - npm install -g bower
   - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
+  - npm i puppeteer
 
 install:
   - npm install
