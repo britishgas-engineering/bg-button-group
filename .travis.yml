@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "6"
 
-sudo: false
+sudo: true
 
 cache:
   directories:
@@ -14,6 +14,7 @@ before_install:
   - npm install -g bower
   - bower --version
   - npm i puppeteer
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 
 install:
   - npm install
