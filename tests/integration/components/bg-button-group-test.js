@@ -36,7 +36,7 @@ test('interacting with buttons', function (assert) {
     {id: 2, label: 'apple'},
     {id: 3, label: 'plum'}
   ];
-  expect(buttons.length * 3 + 1);
+  assert.expect(buttons.length * 3 + 1);
 
   this.set('buttons', buttons);
 

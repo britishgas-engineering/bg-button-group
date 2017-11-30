@@ -7,7 +7,7 @@ moduleForComponent('bg-button-group/bg-button-elem-elem', 'Integration | Compone
 
 test('when renders', function(assert) {
 
-  expect(3);
+  assert.expect(3);
 
   this.on('onRegisterHandler', function (id) {
     assert.equal(id, 'myCustomIdForTest', 'should call register action with elementId');
@@ -40,7 +40,7 @@ test('active status', function (assert) {
 });
 
 test('onButtonClick action', function (assert) {
-  expect(1);
+  assert.expect(1);
 
   let buttonValue = 'apple';
   this.set('value', buttonValue);
