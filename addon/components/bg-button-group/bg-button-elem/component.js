@@ -1,13 +1,15 @@
 /**
  * bg-button component
  */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from './template';
+import {computed} from '@ember/object';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
-  attributeBindings: ['type'],
+  attributeBindings: ['type', 'tabindex'],
   type: 'button',
+  tabindex: null,
 
   /**
    * Defaul class names following bootstrap
@@ -22,7 +24,8 @@ export default Ember.Component.extend({
   classNameBindings: ['active:active'],
   init() {
     this._super(...arguments);
-    return this.attrs.onRegister && this.attrs.onRegister(this.elementId, this.get('value'));
+    const action = this.get('onRegister');
+    return action && action(this.elementId, this.get('value'));
   },
   /**
    * Value of the button, sent when user clicks on this button
@@ -36,7 +39,8 @@ export default Ember.Component.extend({
    * @return {[type]} [description]
    */
   click() {
-    this.attrs.onButtonClick(this.elementId);
+    const action = this.get('onButtonClick');
+    action(this.elementId);
   },
 
   /**
@@ -45,7 +49,7 @@ export default Ember.Component.extend({
    * @param  {Mixed} '_selectedValue'   selected value passed from outside
    * @return {Boolean} if the selected value and this component's values are matching
    */
-  active: Ember.computed('_selectedValue', 'value', function () {
+  active: computed('_selectedValue', 'value', function () {
     return JSON.stringify(this.get('_selectedValue')) === JSON.stringify(this.get('value'));
   }),
   tagName: 'button'
