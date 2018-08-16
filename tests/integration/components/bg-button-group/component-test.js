@@ -14,21 +14,21 @@ module('Integration | Component | bg-button-group', function (hooks) {
     ]);
 
     await render(hbs`
-      <div>
       {{#bg-button-group selectedValue=selectedValue as |bg|}}
         {{#each buttons as |btn|}}
           {{#bg.button value=btn}}{{btn.label}}{{/bg.button}}
         {{/each}}
       {{/bg-button-group}}
-      </div>
     `);
 
-    assert.equal(this.$('button').length, 3, 'should render 3 button');
-    assert.notOk(this.$('button.active').length, 'should not have active class when it is rendered');
-
+    assert.equal(this.element.querySelectorAll('button').length, 3, 'should render 3 button');
+    assert.notOk(this.element.querySelector('.active'), 'should not have active class when it is rendered');
 
     this.set('selectedValue', {id: 2, label: 'apple'});
-    assert.ok(this.$('button:eq(1)').hasClass('active'), 'should set active status when selectedValue changes');
+    const buttons = this.element.querySelectorAll('button');
+    assert.notOk(buttons[0].classList.contains('active'), 'first button should not have active class');
+    assert.ok(buttons[1].classList.contains('active'), '2nd button should have active class when selectedValue changed');
+    assert.notOk(buttons[2].classList.contains('active'), '3rd button should have active class');
   });
 
   test('interacting with buttons', async function (assert) {

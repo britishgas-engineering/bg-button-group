@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg button group/bg button elem', function (hooks) {
@@ -8,7 +8,7 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
 
   test('when renders', async function (assert) {
 
-    assert.expect(3);
+    assert.expect(2);
 
     this.set('onRegisterHandler', function (id) {
       assert.equal(id, 'myCustomIdForTest', 'should call register action with elementId');
@@ -20,8 +20,7 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
       {{/bg-button-group/bg-button-elem}}
     `);
 
-    assert.equal(this.$().text().trim(), 'button label');
-    assert.equal(this.$('>button').length, 1, 'should be rendered as button');
+    assert.equal(this.element.querySelector('button').textContent.trim(), 'button label');
   });
 
   test('active status', async function (assert) {
@@ -34,10 +33,11 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
         button label
       {{/bg-button-group/bg-button-elem}}
     `);
-    assert.notOk(this.$('>button').hasClass('active'), 'should be false by default');
+    const button = this.element.querySelector('button');
+    assert.notOk(button.classList.contains('active'), 'should not have active class by default');
 
     this.set('_selectedValue', buttonValue);
-    assert.ok(this.$('>button').hasClass('active'), 'should active by default');
+    assert.ok(button.classList.contains('active'), 'should active by default');
   });
 
   test('onButtonClick action', async function (assert) {
@@ -55,7 +55,23 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
         button label
       {{/bg-button-group/bg-button-elem}}
     `);
-    this.$('>button').click();
+    await click(this.element.querySelector('button'));
+  });
+
+  test('tabindex', async function (assert) {
+    assert.expect(1);
+
+    let buttonValue = 'apple';
+    this.set('value', buttonValue);
+
+    await render(hbs`
+      {{#bg-button-group/bg-button-elem value=value tabindex=123}}
+        button label
+      {{/bg-button-group/bg-button-elem}}
+    `);
+
+    const button = this.element.querySelector('button');
+    assert.equal(button.tabIndex, 123, 'should add correct tabindex to the button');
   });
 
 });
