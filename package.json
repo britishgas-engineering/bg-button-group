@@ -1,7 +1,7 @@
 {
   "name": "bg-button-group",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.7",
+  "description": "Ember CLI button group component",
   "keywords": [
     "ember-addon"
   ],
