@@ -1,13 +1,14 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from './template';
+import {A} from '@ember/array';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   selectedValue: null,
   classNames: [],
 
   // child element ids
-  children: Ember.A([]),
+  children: A([]),
   didInsertElement() {
     this._super(...arguments);
     this.setSelectedValue(this.get('selectedValue'));
