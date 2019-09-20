@@ -1,6 +1,6 @@
 {
   "name": "bg-button-group",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Ember CLI button group component",
   "keywords": [
     "ember-addon"
@@ -27,7 +27,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "~3.2.0",
+    "ember-cli": "~3.12.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -42,7 +42,7 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.2.0",
     "ember-source-channel-url": "^1.0.1",
-    "ember-try": "^0.2.23",
+    "ember-try": "^1.2.1",
     "ember-welcome-page": "^3.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
