@@ -24,7 +24,7 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
   });
 
   test('active status', async function (assert) {
-    let buttonValue = 'apple';
+    const buttonValue = 'apple';
     this.set('_selectedValue', '');
     this.set('value', buttonValue);
 
@@ -43,7 +43,7 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
   test('onButtonClick action', async function (assert) {
     assert.expect(1);
 
-    let buttonValue = 'apple';
+    const buttonValue = 'apple';
     this.set('value', buttonValue);
 
     this.set('onClickHandler', (elementId) => {
@@ -61,7 +61,7 @@ module('bg-button-group/bg-button-elem-elem', 'Integration | Component | bg butt
   test('tabindex', async function (assert) {
     assert.expect(1);
 
-    let buttonValue = 'apple';
+    const buttonValue = 'apple';
     this.set('value', buttonValue);
 
     await render(hbs`
